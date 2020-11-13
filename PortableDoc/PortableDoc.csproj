@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Algorythms.PortableDoc</AssemblyName>
+    <RootNamespace>Algorythms.PortableDoc</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="itext7" Version="7.1.13" />
+  </ItemGroup>
+
+</Project>
