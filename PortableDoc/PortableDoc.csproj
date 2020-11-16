@@ -4,10 +4,31 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>Algorythms.PortableDoc</AssemblyName>
     <RootNamespace>Algorythms.PortableDoc</RootNamespace>
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>Algorythms.snk</AssemblyOriginatorKeyFile>
+    <Authors>AEJ</Authors>
+    <Description>A library for reading portable documents.</Description>
+    <Copyright>Copywright 2020 Algorythms, All rights reserved</Copyright>
+    <AssemblyVersion>1.0.0.123</AssemblyVersion>
+    <FileVersion>1.0.0.123</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/allenj3304/PortableDoc</RepositoryUrl>
+    <RepositoryType>Public</RepositoryType>
+    <PackageReleaseNotes>1.0.0 - Initial release</PackageReleaseNotes>
+    <Company>Algorythms</Company>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="itext7" Version="7.1.13" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 </Project>
