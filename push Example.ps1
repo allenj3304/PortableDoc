@@ -1,0 +1,1 @@
+dotnet nuget push "\PortableDoc\bin\Release\Algorythms.PortableDoc.1.0.1.nupkg" -s MyDevOpsShared -k AzureDevOps

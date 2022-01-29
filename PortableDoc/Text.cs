@@ -45,24 +45,27 @@ namespace Algorythms.PortableDoc
         {
             StringBuilder result = new StringBuilder();
             errors = null;
-            
-            using iText7.PdfReader reader = new iText7.PdfReader(file);
-            using iText7.PdfDocument doc = new iText7.PdfDocument(reader);
 
-            int numberOfPages = doc.GetNumberOfPages();
-            for (int i = 1; i <= numberOfPages; i++)
-            {
-                try
+            using (iText7.PdfReader reader = new iText7.PdfReader(file)) {
+                using (iText7.PdfDocument doc = new iText7.PdfDocument(reader))
                 {
-                    var page = doc.GetPage(i);
-                    string pagetext = iText7.Canvas.Parser.PdfTextExtractor.GetTextFromPage(page);
-                    result.Append(Common.CleanPdfText(pagetext));
-                }
-                catch(Exception e)
-                {
-                    if(errors == null) errors = new List<Exception>();
-                    errors.Add(e);
-                }
+
+                    int numberOfPages = doc.GetNumberOfPages();
+                    for (int i = 1; i <= numberOfPages; i++)
+                    {
+                        try
+                        {
+                            var page = doc.GetPage(i);
+                            string pagetext = iText7.Canvas.Parser.PdfTextExtractor.GetTextFromPage(page);
+                            result.Append(Common.CleanPdfText(pagetext));
+                        }
+                        catch (Exception e)
+                        {
+                            if (errors == null) errors = new List<Exception>();
+                            errors.Add(e);
+                        }
+                    }
+                } 
             }
 
             return result.ToString();
@@ -75,21 +78,25 @@ namespace Algorythms.PortableDoc
         /// <returns>A <see cref="IEnumerable{T}"/> of paragraphs.</returns>
         public static IEnumerable<string> Paragraphs(Stream file)
         {
-            using iText7.PdfReader reader = new iText7.PdfReader(file);
-            using iText7.PdfDocument doc = new iText7.PdfDocument(reader);
-
-            int numberOfPages = doc.GetNumberOfPages();
-            for (int i = 1; i <= numberOfPages; i++)
+            using (iText7.PdfReader reader = new iText7.PdfReader(file))
             {
-                iText7.PdfPage page = doc.GetPage(i);
-                string pagetext = iText7.Canvas.Parser.PdfTextExtractor.GetTextFromPage(page);
-                pagetext = Common.CleanPdfText(pagetext);
-
-                // Parse paragraphs.
-                IEnumerable<string> paragraphs = pagetext.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string item in paragraphs) 
+                using (iText7.PdfDocument doc = new iText7.PdfDocument(reader))
                 {
-                    yield return item; 
+
+                    int numberOfPages = doc.GetNumberOfPages();
+                    for (int i = 1; i <= numberOfPages; i++)
+                    {
+                        iText7.PdfPage page = doc.GetPage(i);
+                        string pagetext = iText7.Canvas.Parser.PdfTextExtractor.GetTextFromPage(page);
+                        pagetext = Common.CleanPdfText(pagetext);
+
+                        // Parse paragraphs.
+                        IEnumerable<string> paragraphs = pagetext.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (string item in paragraphs)
+                        {
+                            yield return item;
+                        }
+                    }
                 }
             }
         }

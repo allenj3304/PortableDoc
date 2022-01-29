@@ -1,17 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Algorythms.PortableDoc</AssemblyName>
     <RootNamespace>Algorythms.PortableDoc</RootNamespace>
     <SignAssembly>true</SignAssembly>
     <DelaySign>false</DelaySign>
     <AssemblyOriginatorKeyFile>Algorythms.snk</AssemblyOriginatorKeyFile>
-    <Authors>AEJ</Authors>
+    <Authors>Algorythms</Authors>
     <Description>A library for reading portable documents.</Description>
     <Copyright>Copywright 2020 Algorythms, All rights reserved</Copyright>
-    <AssemblyVersion>1.0.0.123</AssemblyVersion>
-    <FileVersion>1.0.0.123</FileVersion>
+    <AssemblyVersion>1.0.1.123</AssemblyVersion>
+    <FileVersion>1.0.1.123</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
@@ -19,6 +19,8 @@
     <RepositoryType>Public</RepositoryType>
     <PackageReleaseNotes>1.0.0 - Initial release</PackageReleaseNotes>
     <Company>Algorythms</Company>
+    <PackageProjectUrl>https://github.com/allenj3304/PortableDoc</PackageProjectUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
